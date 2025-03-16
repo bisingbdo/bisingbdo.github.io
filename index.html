@@ -23,6 +23,8 @@
         h1 {
             font-size: 3rem;
             font-weight: bold;
+            opacity: 0;
+            animation: fadeInDown 2s ease-in forwards;
         }
         .highlight {
             color: #00aaff;
@@ -31,41 +33,36 @@
             font-size: 1.2rem;
             color: #bbb;
             margin-top: -10px;
+            opacity: 0;
         }
-        .buttons {
-            margin-top: 20px;
+        .slide-in {
+            animation: slideIn 1.5s ease-out forwards;
         }
-        .btn {
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+        @keyframes fadeInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
-        .btn-primary {
-            background: #00aaff;
-            color: white;
-        }
-        .btn-secondary {
-            background: black;
-            color: white;
-            border: 2px solid #00aaff;
-        }
-        .btn:hover {
-            opacity: 0.8;
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1> <span class="highlight">Bising Bodo</span></h1>
-        <p>This site belongs to a homies homeless called Bising Bodo.</p>
-        <p>This website is currently under development. Stay tuned!</p>
-        <div class="buttons">
-        </div>
+        <h1 class="highlight">BISING BODO</h1>
+        <p class="desc1">This site belongs to a homies homeless called Bising Bodo.</p>
+        <p class="desc2">This website is currently under development. Stay tuned!</p>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                document.querySelector(".desc1").classList.add("slide-in");
+            }, 500);
+            setTimeout(() => {
+                document.querySelector(".desc2").classList.add("slide-in");
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
